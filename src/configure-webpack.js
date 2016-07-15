@@ -33,6 +33,7 @@ export default (options) => ({
     .concat(options.plugins || []),
 
     module: {
+        noParse: [/moment.js/],
         loaders: [
             {
                 test: /\.js$/,
