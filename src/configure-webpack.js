@@ -33,11 +33,14 @@ export default (options) => ({
     .concat(options.plugins || []),
 
     module: {
-        noParse: [/moment.js/],
+        noParse: [ /moment.js/ ],
         loaders: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: [
+                    /node_modules/,
+                    /.+_files$/,
+                ],
                 loader: 'babel-loader?' + JSON.stringify(babelrc),
             },
             { test: /\.json$/, loader: 'json' },
